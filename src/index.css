@@ -1,13 +1,48 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.game {
+  margin: 1em auto;
+  padding: 1em 50px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+table.sudoku {
+  border-collapse: collapse;
+  margin: 1em auto 1em 0;
+  --thick-border: 3px solid;
+  --thin-border: 1px solid;
+}
+
+table.sudoku td {
+  --sudoku-field-size: 40px;
+  padding: 0;
+  border: var(--thin-border);
+  width: var(--sudoku-field-size);
+  height: var(--sudoku-field-size);
+  text-align: center;
+  font-size: larger;
+}
+
+table.sudoku td input {
+  padding: 0;
+  margin: 0;
+  border: none;
+  width: 100%;
+  height: 100%;
+  text-align: inherit;
+  font: inherit;
+  font-size: inherit;
+}
+
+table.sudoku td:first-child {
+  border-left: var(--thick-border);
+}
+
+table.sudoku td:nth-child(3n) {
+  border-right: var(--thick-border);
+}
+
+table.sudoku tr:first-child {
+  border-top: var(--thick-border);
+}
+
+table.sudoku tr:nth-child(3n) {
+  border-bottom: var(--thick-border);
 }
