@@ -23,43 +23,30 @@ class Square extends React.Component {
       return (
         <Square
           onChange={(event) => this.props.onChange(event, i, j)}
-          value={this.props.squares(i, j)} />
+          value={this.props.squares(i, j)}
+          key={j} />
       );
     }
 
     renderRow(i) {
+        const squares = Array.from(Array(9).keys());
         return (
-            <tr className="board-row">
-                {this.renderSquare(i, 0)}
-                {this.renderSquare(i, 1)}
-                {this.renderSquare(i, 2)}
-                {this.renderSquare(i, 3)}
-                {this.renderSquare(i, 4)}
-                {this.renderSquare(i, 5)}
-                {this.renderSquare(i, 6)}
-                {this.renderSquare(i, 7)}
-                {this.renderSquare(i, 8)}
+            <tr className="board-row" key={i}>
+                {squares.map(sq => this.renderSquare(i, sq))}
             </tr>
         );
     }
   
     render() {
       const status = 'New sudoku ^^';
+      const rows = Array.from(Array(9).keys());
   
       return (
         <div>
           <div className="status">{status}</div>
           <table className="sudoku">
             <tbody>
-                {this.renderRow(0)}
-                {this.renderRow(1)}
-                {this.renderRow(2)}
-                {this.renderRow(3)}
-                {this.renderRow(4)}
-                {this.renderRow(5)}
-                {this.renderRow(6)}
-                {this.renderRow(7)}
-                {this.renderRow(8)}
+                {rows.map(row => this.renderRow(row))}
             </tbody>
             
           </table>
